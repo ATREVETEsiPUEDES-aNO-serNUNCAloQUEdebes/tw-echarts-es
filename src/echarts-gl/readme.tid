@@ -3,12 +3,12 @@ title: $:/plugins/Gk0Wk/echarts-gl/readme
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-[[ECharts-GL|https://github.com/ecomfe/echarts-gl]] 是Apache ECharts的一个扩展包，它提供3D绘图、地球仪可视化和WebGL加速。
+[[ECharts-GL|https://github.com/ecomfe/echarts-gl]] esApache EChartsUn paquete de extension que proporciona3DDibujo, visualizacion del globo terraqueo yWebGLAceleracion。
 
-* 文档: https://echarts.apache.org/zh/option-gl.html
-* 示例: https://www.makeapie.com/explore.html#tags=echarts-gl
+* Documentacion: https://echarts.apache.org/zh/option-gl.html
+* Ejemplo: https://www.makeapie.com/explore.html#tags=echarts-gl
 
-> 本插件使用灵活而强大的 <$text text="TiddlyWiki" /> 开发框架 [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
+> Este complemento es flexible y potente. <$text text="TiddlyWiki" /> Marco de desarrollo [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
 
 </$list>
 

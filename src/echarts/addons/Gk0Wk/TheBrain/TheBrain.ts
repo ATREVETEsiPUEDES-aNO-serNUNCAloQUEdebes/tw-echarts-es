@@ -26,13 +26,13 @@ const CategoriesEn = [
   itemStyle: { color: colors[index % colors.length] },
 }));
 const CategoriesZh = [
-  '聚焦',
-  '历史',
-  '链接',
-  '反链',
-  '标签',
-  '作为标签',
-  '嵌套',
+  'Enfoque',
+  'Historia',
+  'Enlaces',
+  'Anti-enlace',
+  'Etiquetas',
+  'como etiqueta',
+  'Anidacion',
 ].map((name, index) => ({
   name,
   itemStyle: { color: colors[index % colors.length] },
@@ -125,7 +125,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
     myChart.on('click', { dataType: 'node' }, (event: any) => {
       new $tw.Story().navigateTiddler(event.data.name);
     });
-    // 缩放检测
+    // Deteccion de zoom
     let fontScale = 4;
     let originTriggerOn: string | undefined;
     let originShowDelay: number | undefined;
@@ -216,13 +216,13 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
   },
   // eslint-disable-next-line complexity
   onUpdate: (myCharts, state, addonAttributes) => {
-    /** 参数：focussedTiddler 是图的中央节点 */
+    /** Parametros：focussedTiddler Es el nodo central del grafico. */
     let focussedTiddlers = new Set<string>();
     const titles = addonAttributes.focussedTiddler
       ? $tw.wiki.filterTiddlers(addonAttributes.focussedTiddler)
       : [$tw.wiki.getTiddlerText('$:/temp/focussedTiddler') ?? ''];
     for (const title of titles) {
-      // 跳过正在编辑的条目
+      // Omita el elemento que se esta editando.
       if ($tw.wiki.getTiddler(title)?.fields?.['draft.of']) {
         continue;
       }
@@ -256,18 +256,18 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
     const edges: any[] = [];
     const ifChinese =
       $tw.wiki.getTiddlerText('$:/language')?.includes('zh') === true;
-    /** 参数：levels 指定图向外展开几级 */
+    /** Parametros：levels Especifique cuantos niveles desea expandir el grafico hacia afuera. */
     let levels = Number(addonAttributes.levels);
     if (Number.isNaN(levels)) {
       levels = 1;
     }
     levels = Math.max(levels, -1);
-    /** 参数：graphTitle 指定右下角显示的标题 */
+    /** Parametros：graphTitle Especifique el titulo que se muestra en la esquina inferior derecha. */
     const graphTitle =
-      addonAttributes.graphTitle || (ifChinese ? '聚焦' : 'Focusing Map');
-    /** 参数：aliasField 用于指定展示为节点标题的字段，例如 caption */
+      addonAttributes.graphTitle || (ifChinese ? 'Enfoque' : 'Focusing Map');
+    /** Parametros：aliasField Se utiliza para especificar el campo que se muestra como titulo del nodo, por ejemplo caption */
     const aliasField = addonAttributes.aliasField || 'caption';
-    /** 参数：excludeFilter 用于排除部分节点 */
+    /** Parametros：excludeFilter Se utiliza para excluir algunos nodos. */
     const excludeFilter =
       addonAttributes.excludeFilter === ''
         ? undefined
@@ -277,7 +277,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
     const excludeTitles = $tw.utils.parseStringArray(addonAttributes.excludeTitles ?? '') ?? [];
     const nodeMap: Map<string, boolean> = new Map();
 
-    // 聚焦点
+    // Enfoque
     for (const focussedTiddler of focussedTiddlers) {
       nodes.push({
         name: focussedTiddler,
@@ -305,7 +305,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
       });
     }
 
-    // 初始化：当前关注的 Tiddler
+    // Inicializacion: actualmente enfocado en Tiddler
     let tiddlerQueue: string[] = [];
     nodeMap.set('', false);
     for (const tiddler of focussedTiddlers) {
@@ -354,12 +354,12 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
       return exist;
     };
 
-    // 广搜 levels 层
+    // Guangsou levels Capa
     while (tiddlerQueue.length && levels-- > 0) {
       const tiddlers = tiddlerQueue;
       tiddlerQueue = [];
       for (const tiddler of tiddlers) {
-        // 链接
+        // Enlaces
         for (const linksTo of $tw.wiki.getTiddlerLinks(tiddler)) {
           tryPush(
             linksTo,
@@ -381,7 +381,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
             }),
           );
         }
-        // 反链
+        // Anti-enlace
         for (const backlinksFrom of $tw.wiki.getTiddlerBacklinks(tiddler)) {
           tryPush(
             backlinksFrom,
@@ -403,7 +403,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
             }),
           );
         }
-        // 标签
+        // Etiquetas
         for (const tag of $tw.wiki.getTiddler(tiddler)?.fields?.tags ?? []) {
           tryPush(
             tag,
@@ -425,7 +425,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
             }),
           );
         }
-        // 作为标签
+        // como etiqueta
         for (const tagBy of $tw.wiki.getTiddlersWithTag(tiddler)) {
           tryPush(
             tagBy,
@@ -447,7 +447,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
             }),
           );
         }
-        // 嵌入
+        // Incrustar
         for (const transcludeTiddler of $tw.wiki.getTiddlerBacktranscludes(tiddler)) {
           tryPush(
             transcludeTiddler,
@@ -472,7 +472,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
       }
     }
 
-    // 历史路径
+    // Camino historico
     if (focussedTiddlers.size === 1) {
       const focussedTiddler = focussedTiddlers.values().next().value;
       let nextTiddler = focussedTiddler;
@@ -510,7 +510,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
         );
         nextTiddler = tiddlerTitle;
       }
-      // 更新历史
+      // Historial de actualizaciones
       const historyIndex = state.historyTiddlers.indexOf(focussedTiddler);
       if (historyIndex > -1) {
         state.historyTiddlers.splice(historyIndex, 1);
@@ -565,7 +565,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
           }
           cache = [ul];
         } else {
-          // 不可以直接 renderText, 那种是 headless 渲染
+          // No directamente renderText, Eso es headless Representacion
           $tw.wiki
             .makeWidget(
               $tw.wiki.parseTiddler(
@@ -686,7 +686,7 @@ const TheBrainAddon: IScriptAddon<ITheBrainState, ITheBrainAttributes> = {
           itemStyle: {
             opacity: 0.9,
           },
-          // 高亮聚焦
+          // Resalte el enfoque
           emphasis: {
             disabled: !focusBlur,
             focus: 'adjacency',

@@ -1,37 +1,37 @@
 created: 20231007080719211
 modified: 20231007083819527
-tags: 堆叠图
-title: 堆叠图-动态数值
+tags: Grafico apilado
+title: Grafico apilado-Valores dinamicos
 type: text/vnd.tiddlywiki
 
-这里和[[折线图-动态数值]]的思路是一样的。通过`<$list>`构造数据addon。这里用到的示例条目是[[周期测试示例]]标签下的七个条目，模仿一周的时间。里面有六个字段，分别是活动，生活，学习，娱乐，工作和总共。除了总共是500外，其他都是100，就单纯是数值。
+Aqui y[[Grafico de lineas-Valores dinamicos]]La idea es la misma. Pase`<$list>`Construir datosaddon。Las entradas de ejemplo utilizadas aqui son[[Ejemplo de prueba de ciclo]]Siete entradas bajo la etiqueta, simulando una semana. Hay seis campos en su interior, a saber, actividades, vida, estudio, entretenimiento, trabajo y total. excepto que el total es500Excepto que todo lo demas es100，Solo un valor numerico。
 
-构造中同样有两处关键代码。
+Tambien hay dos codigos clave en la estructura.。
 
 <$macrocall $name=code src=```data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 ```/>
 
-这里我们要构造成标题日期。
+Aqui queremos construir la fecha del titulo.。
 
-<$macrocall $name=code src=```"data": [<$list filter="[tag[周期测试示例]]">'<<currentTiddler>>', </$list>]
+<$macrocall $name=code src=```"data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'<<currentTiddler>>', </$list>]
 ```/>
 
-"data": [<$list filter="[tag[周期测试示例]]">'<<currentTiddler>>', </$list>]
+"data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'<<currentTiddler>>', </$list>]
 
-然后是对对应的活动，生活，学习，娱乐，工作和总共进行同样的构造。
+Luego realizar la misma estructura para las actividades correspondientes, vida, estudio, entretenimiento, trabajo y total.。
 
-"data": [<$list filter="[tag[周期测试示例]]">'{{!!生活}}', </$list>]
+"data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!vida}}', </$list>]
 
-这里是嵌入了生活，但因为每个数值都是100，所以看起来没有变化。
+La vida esta incrustada aqui, pero debido a que cada valor es100，Entonces parece que no hay cambios.。
 
-然后接下来的就需要细心一一对应上就可以了。
+Luego debes corresponder cuidadosamente uno a uno para el siguiente paso.。
 
-!!! 直接上代码！
+!!! Sube directamente el codigo！
 
-<<code src:"堆叠图-动态数值-addon">>
+<<code src:"Grafico apilado-Valores dinamicos-addon">>
 
-接下来，我们把上面的代码保存到[[堆叠图-动态数值-addon]]中。然后通过echarts微件进行调用。
+A continuacion, guardamos el codigo anterior en[[Grafico apilado-Valores dinamicos-addon]]Medio. luego pasaechartsEl widget realiza una llamada.。
 
-<$echarts $tiddler="堆叠图-动态数值-addon"  $height="600px"/>
+<$echarts $tiddler="Grafico apilado-Valores dinamicos-addon"  $height="600px"/>
 
-非常工整，像彩虹糖一样。
+Muy limpio, como un caramelo arcoiris.。

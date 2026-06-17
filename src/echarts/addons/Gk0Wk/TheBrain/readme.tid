@@ -5,31 +5,31 @@ title: $:/plugins/Gk0Wk/echarts/addons/TheBrain-readme
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-聚焦图，灵感来源于 <$text text="TheBrain" /> 与知识图谱理论，目的是在用户阅读条目时提供信息侧载，用直观的视觉信息告诉用户与该条目相关的信息，帮助用户在茫茫的知识海洋中自由漫步。
+Centrate en las imagenes, inspiradas en <$text text="TheBrain" /> Con la teoria de graficos de conocimiento, el proposito es proporcionar informacion cuando los usuarios leen elementos, usar informacion visual intuitiva para brindarles informacion relacionada con el elemento y ayudarlos a deambular libremente en el vasto oceano de conocimiento.。
 
-因该图关注的是当前条目所发散的信息，因此成为「聚焦」，与Obsidian的全局知识图谱不同（全局图谱正在设计中，欢迎提出建议）。
+Debido a que este diagrama se centra en la informacion que emana de la entrada actual, se convierte en「Enfoque」，ConObsidianEl grafico de conocimiento global es diferente (el grafico global esta en diseno, se aceptan sugerencias)）。
 
-一般的使用方法：将该图放置于侧栏，并下载安装 <$text text="$:/plugins/Gk0Wk/focused-tiddler" /> 插件（[[CPL|https://tw-cpl.netlify.app/]]中有）。具体操作为：
+Uso general: coloque la imagen en la barra lateral y descarguela e instalela. <$text text="$:/plugins/Gk0Wk/focused-tiddler" /> Complementos（[[CPL|https://tw-cpl.netlify.app/]]Si). La operacion especifica es：
 
-# 创建一个条目，并赋予其 `$:/tags/SideBar` 标签；
-# 其中写如下内容：`<$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/TheBrain.js" />`；
-# 设置一下`caption`字段，作为侧栏的标题
-# 保存，即可以在侧边栏看到它。
+# Crea una entrada y dale `$:/tags/SideBar` Etiquetas；
+# Escribe el siguiente contenido en el.：`<$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/TheBrain.js" />`；
+# Configurelo`caption`Campo como titulo de la columna lateral.
+# Guarda y podras verlo en la barra lateral.。
 
-聚焦图提供了一些参数，可以根据这些参数设定其行为：
+El grafico de enfoque proporciona algunos parametros segun los cuales se puede establecer su comportamiento.：
 
-* `focussedTiddler` 用于设定当前聚焦的条目，即从该条目开始向外扩展。默认使用 <$text text="$:/plugins/Gk0Wk/focused-tiddler" /> 提供的当前聚焦的条目。支持使用过滤表达式包含多个条目，如 `[tag[A]]`；
-* `levels` 用于设定图的层级，即从当前条目开始，向外扩展几层。默认为 `1`，`Infinity`为无限扩展直到遍历所有关系，@@color:red; 层级越多就越有可能卡死页面，自己当心 @@；
-* `graphTitle` 用于设定图的标题，即侧边栏的标题。默认为 `聚焦`；
-* `aliasField` 用于设定别名字段，即在聚焦图中，显示的是别名字段的内容。默认为 `caption`；
-* `excludeFilter` 用于设定排除的过滤器，即在聚焦图中，排除哪些条目，多个筛选器之间用空格隔开即可。默认为 `[prefix[$:/]] [is[draft]]`，即排除所有系统条目和被编辑的条目；
-* `excludeTitles` 用于设定排除的标题，即在聚焦图中，直接排除哪些标题。可以直接填写标题 `任务` 或使用太微的列表标题格式如 `[[任务]]`
-** 上面的例子等价于在 `excludeFilter` 中加上 `[field:title[任务]]` 这样的筛选器，但更加简练。默认为空；
-** `excludeTitles` 与 `excludeFilter` 可以同时存在，会排除所有满足条件的条目；
-* `previewDelay` 用于设定预览延迟，即鼠标悬停在节点上多久后显示预览。默认为 `1000`，即 1000ms，`-1` 表示不显示预览；
-* `focusBlur` 在鼠标悬浮在某个节点上时，其他节点是否变淡。默认为 `true`，即变淡；
-* `previewTemplate` 用于设定预览模板，渲染预览内容。默认为 `$:/plugins/Gk0Wk/echarts/addons/TheBrainPopup`；
-* `zoom` 用于设定初始缩放比例。默认为 `4`。
+* `focussedTiddler` Se utiliza para configurar el elemento actualmente enfocado, es decir, comenzar desde este elemento y expandirse hacia afuera. Usado por defecto <$text text="$:/plugins/Gk0Wk/focused-tiddler" /> Proporciona el elemento actualmente enfocado. Admite el uso de expresiones de filtro para incluir multiples entradas, como `[tag[A]]`；
+* `levels` Se utiliza para establecer el nivel del diagrama, es decir, comenzando desde el elemento actual y extendiendose hacia afuera varias capas. El valor predeterminado es `1`，`Infinity`Expandir infinitamente hasta atravesar todas las relaciones.，@@color:red; Cuantos mas niveles haya, mas probabilidades habra de que la pagina se atasque. Ten cuidado. @@；
+* `graphTitle` Se utiliza para establecer el titulo de la figura, es decir, el titulo de la barra lateral. El valor predeterminado es `Enfoque`；
+* `aliasField` Se utiliza para configurar el campo de alias, es decir, en la imagen de enfoque, se muestra el contenido del campo de alias. El valor predeterminado es `caption`；
+* `excludeFilter` Se utiliza para establecer filtros excluidos, es decir, que elementos se excluyen en el grafico de enfoque. Se pueden separar varios filtros por espacios. El valor predeterminado es `[prefix[$:/]] [is[draft]]`，Excluir todas las entradas del sistema y las entradas editadas.；
+* `excludeTitles` Se utiliza para configurar titulos excluidos, es decir, que titulos se excluyen directamente en la imagen de enfoque. Puedes rellenar directamente el titulo. `Tarea` O utilice el formato de titulo de lista de Taiwei, como `[[Tarea]]`
+** El ejemplo anterior es equivalente a `excludeFilter` Medio mas `[field:title[Tarea]]` Un filtro asi, pero mas conciso. El valor predeterminado esta vacio；
+** `excludeTitles` Con `excludeFilter` Pueden existir al mismo tiempo, y se excluiran todas las inscripciones que cumplan las condiciones.；
+* `previewDelay` Se utiliza para establecer el retraso de la vista previa, es decir, cuanto tiempo lleva mostrar la vista previa despues de pasar el mouse sobre el nodo. El valor predeterminado es `1000`，Eso es 1000ms，`-1` Indica que no se muestra la vista previa；
+* `focusBlur` Cuando el mouse pasa sobre un nodo, otros nodos se vuelven mas claros. El valor predeterminado es `true`，Se desvanece；
+* `previewTemplate` Se utiliza para configurar la plantilla de vista previa y representar el contenido de la vista previa. El valor predeterminado es `$:/plugins/Gk0Wk/echarts/addons/TheBrainPopup`；
+* `zoom` Se utiliza para establecer la relacion de escala inicial. El valor predeterminado es `4`。
 
 </$list>
 <$list filter="[<lang>!search[zh]]">

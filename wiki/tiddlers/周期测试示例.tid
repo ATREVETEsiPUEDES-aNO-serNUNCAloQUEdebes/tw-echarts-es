@@ -1,9 +1,9 @@
 created: 20231007081108968
 modified: 20231007083541332
-tags: 示例条目
-title: 周期测试示例
+tags: Entradas de muestra
+title: Ejemplo de prueba de ciclo
 type: text/vnd.tiddlywiki
 
-这里同样是一些示例条目。用来展示[[堆叠图-动态数值]]。
+Aqui nuevamente hay algunos ejemplos de entradas. usado para mostrar[[Grafico apilado-Valores dinamicos]]。
 
-<$echarts $tiddler="堆叠图-模板使用-addon" currentTiddler=<<currentTiddler>> $height="500px"/>
+<$echarts $tiddler="Grafico apilado-Uso de plantillas-addon" currentTiddler=<<currentTiddler>> $height="500px"/>

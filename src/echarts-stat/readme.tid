@@ -3,13 +3,13 @@ title: $:/plugins/Gk0Wk/echarts-stat/readme
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-[[Echarts Stat|https://github.com/ecomfe/echarts-stat]] 是Apache ECharts 的一个统计和数据挖掘工具。你可以用它来分析数据，然后用ECharts将结果可视化，或者只是用它来处理数据。
+[[Echarts Stat|https://github.com/ecomfe/echarts-stat]] esApache ECharts Una herramienta estadistica y de mineria de datos. Puede usarlo para analizar datos y luego usarloEChartsVisualice los resultados o simplemente utilicelos para procesar los datos.。
 
-EchartStat中，基本统计方法 `statistics` 的API导出至 `window.EChartsStat` 。
+EchartStatMetodos estadisticos basicos y medios. `statistics` deAPIExportar a `window.EChartsStat` 。
 
-* 文档: https://github.com/ecomfe/echarts-stat/blob/master/README.zh-CN.md
+* Documentacion: https://github.com/ecomfe/echarts-stat/blob/master/README.zh-CN.md
 
-> 本插件使用灵活而强大的 <$text text="TiddlyWiki" /> 开发框架 [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
+> Este complemento es flexible y potente. <$text text="TiddlyWiki" /> Marco de desarrollo [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
 
 </$list>
 

@@ -1,7 +1,7 @@
 created: 20231007082232946
 modified: 20231007082456654
-tags: 堆叠图-动态数值
-title: 堆叠图-动态数值-addon
+tags: Grafico apilado-Valores dinamicos
+title: Grafico apilado-Valores dinamicos-addon
 type: text/vnd.tiddlywiki
 
 {
@@ -18,7 +18,7 @@ type: text/vnd.tiddlywiki
     }
   },
   "legend": {
-    "data": ['生活', '学习', '娱乐', '活动', '工作']
+    "data": ['vida', 'aprender', 'Entretenimiento', 'Actividades', 'Trabajo']
   },
   "toolbox": {
     "feature": {
@@ -36,7 +36,7 @@ type: text/vnd.tiddlywiki
       "type": "category",
       "boundaryGap": "false",
       "data": [
-        <$list filter="[tag[周期测试示例]]">'{{!!title}}', </$list>
+        <$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!title}}', </$list>
         ]
     }
   ],
@@ -47,7 +47,7 @@ type: text/vnd.tiddlywiki
   ],
   "series": [
     {
-      "name": "生活",
+      "name": "vida",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -58,10 +58,10 @@ type: text/vnd.tiddlywiki
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag[周期测试示例]]">'{{!!生活}}', </$list>]
+      "data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!vida}}', </$list>]
     },
     {
-      "name": "学习",
+      "name": "aprender",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -72,10 +72,10 @@ type: text/vnd.tiddlywiki
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag[周期测试示例]]">'{{!!学习}}', </$list>]
+      "data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!aprender}}', </$list>]
     },
     {
-      "name": "娱乐",
+      "name": "Entretenimiento",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -86,10 +86,10 @@ type: text/vnd.tiddlywiki
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag[周期测试示例]]">'{{!!娱乐}}', </$list>]
+      "data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!Entretenimiento}}', </$list>]
     },
     {
-      "name": "活动",
+      "name": "Actividades",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -100,10 +100,10 @@ type: text/vnd.tiddlywiki
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag[周期测试示例]]">'{{!!活动}}', </$list>]
+      "data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!Actividades}}', </$list>]
     },
     {
-      "name": "工作",
+      "name": "Trabajo",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -114,7 +114,7 @@ type: text/vnd.tiddlywiki
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag[周期测试示例]]">'{{!!工作}}', </$list>]
+      "data": [<$list filter="[tag[Ejemplo de prueba de ciclo]]">'{{!!Trabajo}}', </$list>]
     }
   ]
 }

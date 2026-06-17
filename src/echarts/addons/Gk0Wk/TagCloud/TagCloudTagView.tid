@@ -5,7 +5,7 @@ title: $:/plugins/Gk0Wk/echarts/addons/TagCloudTagView
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-!! 包含 <$link to=<<tagName>>/> 标签的条目
+!! Contiene <$link to=<<tagName>>/> Entradas de etiquetas
 
 </$list>
 

@@ -1,10 +1,10 @@
 created: 20231007051013184
-list: 折线图-给定数值 折线图-动态数值
+list: Grafico de lineas-Dados valores numericos, grafico de lineas.-Valores dinamicos
 modified: 20231007053128765
-tags: 教程向-Echarts插件简单使用
-title: 基础折线图
+tags: Direccion del tutorial.-EchartsEl complemento es facil de usar
+title: Grafico de lineas basico
 type: text/vnd.tiddlywiki
 
-[[基础折线图]]就比[[进度图]]要复杂了。因为进度图只需要反映一个数据就可以了。折线图则是多个数据。而且是x轴和y轴，两个维度。但不必担心，这个上手也很容易的。并且非常实用，也常用，你一定可以掌握的。
+[[Grafico de lineas basico]]Solo compara[[Grafico de progreso]]Se esta poniendo complicado. Porque el grafico de progreso solo necesita reflejar un dato. Un grafico de lineas son multiples datos. Y esxSuma del ejeyEje, dos dimensiones. Pero no te preocupes, es facil empezar. Y es muy practico y de uso comun. Definitivamente podras dominarlo.。
 
-<<tabs "[tag[基础折线图]]" "折线图-给定数值" "$:/state/tab2" >>
+<<tabs "[tag[Grafico de lineas basico]]" "Grafico de lineas-Dado un valor" "$:/state/tab2" >>

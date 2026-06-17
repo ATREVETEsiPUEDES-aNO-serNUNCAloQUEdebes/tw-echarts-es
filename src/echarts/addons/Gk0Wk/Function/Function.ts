@@ -5,7 +5,7 @@ const addon: IScriptAddon<void> = {
     return $tw.utils.count(changedAttributes) > 0;
   },
   onUpdate: (myChart, _state, addonAttributes) => {
-    // 参数解析
+    // Analisis de parametros
     const resolution = Math.max(
       1,
       Math.min(1e5, parseInt(addonAttributes.res, 10) || 200),
@@ -28,7 +28,7 @@ const addon: IScriptAddon<void> = {
     );
     const func = (x: number) => Math.max(-9e8, Math.min(9e8, func_(x)));
 
-    // 采样
+    // Muestreo
     const points = [];
     const step = (maxX - minX) / Math.min(resolution, 1e5);
     for (let i = 0, x = minX; i < resolution; i += 1, x += step) {
@@ -36,7 +36,7 @@ const addon: IScriptAddon<void> = {
     }
     points.push([maxX, func(maxX)]);
 
-    // 画图
+    // Haz un dibujo
     myChart.setOption({
       animation: false,
       grid: {

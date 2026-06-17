@@ -1,10 +1,10 @@
 created: 20231007044640502
 modified: 20231007075447689
-tags: 进度图
-title: 进度图-给定数值
+tags: Grafico de progreso
+title: Grafico de progreso-Dado un valor
 type: text/vnd.tiddlywiki
 
-直接复制下面的代码，就可以看到效果。这里用到的数据是0.3，也就是30%，这个数据是固定的。所以如果是设定好了的数据，那直接复制代码就可以使用了。
+Copie directamente el codigo a continuacion para ver el efecto. Los datos utilizados aqui son0.3，eso es30%，Estos datos son fijos. Entonces, si se trata de datos configurados, puede copiar el codigo directamente y usarlo.。
 
 <$macrocall $name=code src=```<$echarts $text="""
 option = {

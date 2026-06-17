@@ -11,11 +11,11 @@ import * as ECharts from '$:/plugins/Gk0Wk/echarts/echarts.min.js';
 
 const Function_ = Function;
 if ($tw.browser) {
-  // 总算明白了，node启动时，这个会被调用一遍，在浏览器又会调用一遍
-  // 两边不是一个概念
+  // Finalmente entender，nodeAl iniciar, esto se llamara una y otra vez en el navegador.
+  // Las dos partes no son el mismo concepto
   (globalThis as any).echarts = ECharts;
   try {
-    // 注册各种扩展
+    // Registre varias extensiones.
     $tw.modules.forEachModuleOfType(
       'echarts-extension',
       (title, extension: any) => {
@@ -150,7 +150,7 @@ class EChartsWidget extends Widget {
       this.getAttribute('$renderer', 'canvas') === 'svg' ? 'svg' : 'canvas';
     this.text = this.getAttribute('$text', '').trim() || undefined;
 
-    // 设置去抖
+    // Configurar el rebote
     const throttleText = this.getAttribute('$throttle');
     if (throttleText) {
       const t = parseInt(throttleText, 10);
@@ -189,7 +189,7 @@ class EChartsWidget extends Widget {
       this.initAddon();
       this.renderAddon();
       if (ssr) {
-        // 如果是非浏览器环境，使用 SSR
+        // Si se trata de un entorno sin navegador, utilice SSR
         // https://echarts.apache.org/handbook/zh/how-to/cross-platform/server
         if (
           !Number.isSafeInteger(Number(this.width.replace('px', ''))) ||
@@ -216,7 +216,7 @@ class EChartsWidget extends Widget {
 
   refresh(changedTiddlers: IChangedTiddlers) {
     if (this.timer !== undefined) {
-      // 说明已经有一个正在节流的定时器了，那么就把这次的变更合并进去
+      // Significa que ya hay un temporizador que se esta acelerando, asi que combine este cambio en el.
       if (this.tmpChangedTiddlers !== undefined) {
         this.tmpChangedTiddlers = {
           ...this.tmpChangedTiddlers,
@@ -227,9 +227,9 @@ class EChartsWidget extends Widget {
       }
       return;
     }
-    // 先做一次
+    // Hazlo una vez
     this.refresh_(changedTiddlers);
-    // 然后节流
+    // Luego acelera
     let count = 5;
     this.timer = setInterval(() => {
       if (count-- <= 0 && this.tmpChangedTiddlers === undefined) {
@@ -247,12 +247,12 @@ class EChartsWidget extends Widget {
   refresh_(changedTiddlers: IChangedTiddlers) {
     const oldAddonTitle = this.tiddlerTitle;
     const changedAttributes = this.computeAttributes();
-    let refreshFlag = 0; // 0: 不需要任何变更   1: 需要重新生成Option   2: 需要重新渲染
-    // 先看一下参数的变化，这里分为几种：
-    // $tiddler变化的，说明要重新生成Option
-    // $theme、$fillSidebar 和 $renderer需要重新初始化实例
-    // $class、$width 和 $height 只需要修改容器的尺寸就好了
-    // 剩下的就是传给插件的参数了
+    let refreshFlag = 0; // 0: No se requieren cambios   1: Necesidad de regenerarseOption   2: Necesidad de volver a renderizar
+    // Veamos primero los cambios de parametros, que se dividen en varios tipos:：
+    // $tiddlerSi cambia, significa que necesita ser regenerado.Option
+    // $theme、$fillSidebar y $rendererNecesidad de reinicializar la instancia.
+    // $class、$width y $height Simplemente modifique el tamano del contenedor.
+    // El resto son los parametros pasados al complemento.
     if ($tw.utils.count(changedAttributes) > 0) {
       let counter = 0;
       $tw.utils.each(['$theme', '$fillSidebar', '$renderer'], key => {
@@ -290,7 +290,7 @@ class EChartsWidget extends Widget {
     ) {
       refreshFlag |= 1;
     }
-    // 检查自动主题时，黑暗模式是否切换了
+    // Compruebe si el modo oscuro esta activado cuando se utiliza el tema automatico.
     const oldTheme = this.theme;
     this.execute();
     if (oldTheme !== this.theme) {
@@ -323,11 +323,11 @@ class EChartsWidget extends Widget {
         return false;
       }
       const tiddler = $tw.wiki.getTiddler(this.tiddlerTitle)!.fields;
-      // 忽略草稿
+      // Ignorar borradores
       if (this.skipDraftTiddle && tiddler['draft.of']) {
         return false;
       }
-      // 懒加载模式，还在加载，要等待
+      // Modo de carga diferida, aun cargando, es necesario esperar
       if (
         '_is_skinny' in tiddler &&
         $tw.wiki.getTiddlerText(this.tiddlerTitle) === null
@@ -395,7 +395,7 @@ class EChartsWidget extends Widget {
 
   rebuildInstance(ssr = false) {
     const oldOptions = this.clearInstance();
-    // 新建实例
+    // Crea una nueva instancia
     this.echartsInstance = ECharts.init(
       (ssr ? null : this.containerDom) as HTMLDivElement,
       this.theme,
@@ -414,7 +414,7 @@ class EChartsWidget extends Widget {
       darkMode: this.theme === 'dark',
       backgroundColor: 'transparent',
     } as any);
-    // 监听大小变更
+    // Supervisar los cambios de tamano
     if (globalThis.ResizeObserver && $tw.browser && !ssr) {
       this.resizeObserver = new ResizeObserver(entries => {
         requestAnimationFrame(() => {
@@ -441,7 +441,7 @@ class EChartsWidget extends Widget {
     return oldOptions;
   }
 
-  // 初始化addon
+  // Inicializacionaddon
   initAddon() {
     try {
       if (this.text === undefined) {
@@ -449,7 +449,7 @@ class EChartsWidget extends Widget {
           return;
         }
         const tiddler = $tw.wiki.getTiddler(this.tiddlerTitle)!.fields;
-        // 懒加载模式，还在加载，要等待
+        // Modo de carga diferida, aun cargando, es necesario esperar
         if (
           '_is_skinny' in tiddler &&
           $tw.wiki.getTiddlerText(this.tiddlerTitle) === null
@@ -488,7 +488,7 @@ class EChartsWidget extends Widget {
     }
   }
 
-  // 异步更新
+  // Actualizaciones asincronicas
   async renderAddon() {
     // when upgrading plugin, this maybe unloaded to be undefined.
     if (!this.echartsInstance) {
@@ -502,7 +502,7 @@ class EChartsWidget extends Widget {
           return;
         }
         const tiddler = $tw.wiki.getTiddler(this.tiddlerTitle)!.fields;
-        // 懒加载模式，还在加载，要等待
+        // Modo de carga diferida, aun cargando, es necesario esperar
         if (
           '_is_skinny' in tiddler &&
           $tw.wiki.getTiddlerText(this.tiddlerTitle) === null

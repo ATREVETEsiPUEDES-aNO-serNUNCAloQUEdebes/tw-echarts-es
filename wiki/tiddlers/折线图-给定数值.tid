@@ -1,10 +1,10 @@
 created: 20231007051852731
 modified: 20231007075714976
-tags: 基础折线图
-title: 折线图-给定数值
+tags: Grafico de lineas basico
+title: Grafico de lineas-Dado un valor
 type: text/vnd.tiddlywiki
 
-同样我们先从给定数值开始入门。把echarts官方里的[[示例|https://echarts.apache.org/examples/zh/editor.html?c=line-simple]]代码复制过来。放到微件里去调用。
+Nuevamente, comencemos con los valores dados. ponerechartsOficial[[Ejemplo|https://echarts.apache.org/examples/zh/editor.html?c=line-simple]]Copie el codigo. Ponlo en el widget y llamalo.。
 
 <$macrocall $name=code src=```<$echarts $text="""
 option = {
@@ -42,7 +42,7 @@ option = {
 };
 """/>
 
-给定数值的好处就是可以直接复制代码，修改里面的数值，放到text里面去。这里如果想要展示数值也是可以的。在`type: 'line' `前面加上下面代码就可以了。
+La ventaja de dar un valor determinado es que puedes copiar directamente el codigo, modificar el valor dentro y ponerlo.textEntra. Tambien puede mostrar valores aqui si lo desea. en`type: 'line' `Simplemente agregue el siguiente codigo delante。
 
 <$macrocall $name=code src=```label: {
         show: true,
@@ -50,7 +50,7 @@ option = {
       },
 ```/>
 
-这个代码的意思就是展示标签，并且展示在顶端。
+El significado de este codigo es mostrar la etiqueta y mostrarla en la parte superior.。
 
 <$echarts $text="""
 option = {

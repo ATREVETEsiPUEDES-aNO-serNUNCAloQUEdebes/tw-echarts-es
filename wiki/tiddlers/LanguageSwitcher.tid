@@ -12,6 +12,6 @@ type: text/vnd.tiddlywiki
 <$button set="$:/language" setTo="$:/languages/en-GB" style="">🇬🇧 Switch to English</$button>
 </$list>
 <$list filter="[<lang>!search[zh]]">
-<$button set="$:/language" setTo="$:/languages/zh-Hans" style="">🇨🇳 切换至中文</$button>
+<$button set="$:/language" setTo="$:/languages/zh-Hans" style="">🇨🇳 Cambiar al chino</$button>
 </$list>
 </$list>

@@ -1,28 +1,28 @@
 created: 20231007070622546
 modified: 20231007080255944
-tags: 简单饼图
-title: 简单饼图-动态数值
+tags: Grafico circular sencillo
+title: Grafico circular sencillo-Valores dinamicos
 type: text/vnd.tiddlywiki
 
-同[[进度图-动态数值]]一样，这里也是用的`define`方式进行文本替换。
+Igual que[[Grafico de progreso-Valores dinamicos]]Aqui se utiliza lo mismo.`define`Metodo de reemplazo de texto。
 
-这里我们用几个数据来展示。分别是国庆七天条目的数量，影子条目的数量。普通条目数量。今天写的教程数量以及ECharts条目数量。都列在下面了。
+Aqui utilizamos varios datos para mostrar. Son el numero de entradas para el Dia Nacional de siete dias y el numero de entradas paralelas, respectivamente. Numero normal de entradas. El numero de tutoriales escritos hoy yEChartsNumero de entradas. Esta todo listado a continuacion。
 
-国庆条目数量： <$text text={{{[!is[system]tag[国庆七天]sort[title]count[]]}}}/>
+Numero de inscripciones del Dia Nacional： <$text text={{{[!is[system]tag[Siete dias del Dia Nacional]sort[title]count[]]}}}/>
 
-普通条目数量：<$text text={{{[!is[system]sort[title]count[]]}}}/>
+Numero de entradas generales：<$text text={{{[!is[system]sort[title]count[]]}}}/>
 
-影子条目数量：<$text text={{{[is[tiddler]is[shadow]sort[title]count[]]}}}/>
+Numero de entradas en la sombra：<$text text={{{[is[tiddler]is[shadow]sort[title]count[]]}}}/>
 
-教程条目数量：<$text text={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}/>
+Numero de entradas del tutorial：<$text text={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}/>
 
-ECharts条目数量： <$text text={{{[!is[system]tag[ECharts]sort[title]count[]]}}}/>
+EChartsNumero de entradas： <$text text={{{[!is[system]tag[ECharts]sort[title]count[]]}}}/>
 
 <$macrocall $name=code src=```\define pie-chart()
 option = {
   title: {
-    text: '简单饼图',
-    subtext: '动态数据',
+    text: 'Grafico circular sencillo',
+    subtext: 'Datos dinamicos',
     left: 'center'
   },
   tooltip: {
@@ -32,7 +32,7 @@ option = {
   legend: {
     bottom: 10,
     left: 'center',
-    data: ['国庆条目', '普通条目', '影子条目', '教程条目', 'ECharts条目']
+    data: ['Entradas del Dia Nacional', 'Entradas generales', 'Entradas en la sombra', 'Entrada al tutorial', 'EChartsEntradas']
   },
   series: [
     {
@@ -41,11 +41,11 @@ option = {
       center: ['50%', '50%'],
       selectedMode: 'single',
       data: [
-        {value: $(国庆条目)$,name: '国庆条目' },
-        { value: $(普通条目)$, name: '普通条目' },
-        { value: $(影子条目)$, name: '影子条目' },
-        { value: $(教程条目)$, name: '教程条目' },
-        { value: $(ECharts条目)$, name: 'ECharts条目' }
+        {value: $(Entradas del Dia Nacional)$,name: 'Entradas del Dia Nacional' },
+        { value: $(Entradas generales)$, name: 'Entradas generales' },
+        { value: $(Entradas en la sombra)$, name: 'Entradas en la sombra' },
+        { value: $(Entrada al tutorial)$, name: 'Entrada al tutorial' },
+        { value: $(EChartsEntradas)$, name: 'EChartsEntradas' }
       ],
       emphasis: {
         itemStyle: {
@@ -60,28 +60,28 @@ option = {
 \end
 ```/>
 
-上面代码一定要注意一一对应。如果对应错了，显示的数值也是错的。
+Los codigos anteriores deben estar en correspondencia uno a uno. Si la correspondencia es incorrecta, el valor mostrado tambien sera incorrecto.。
 
-如果想自定义颜色也是可以的，直接在后面加上`itemStyle: {color: '#28a745'}`，如下面所示。
+Si deseas personalizar el color, puedes agregarlo directamente al final.`itemStyle: {color: '#28a745'}`，Como se muestra a continuacion。
 
 <$macrocall $name=code src=```data: [
-        {value: $(国庆条目)$,name: '国庆条目',itemStyle: {color: '#28a745'}},
-        {value: $(普通条目)$, name: '普通条目' ,itemStyle: {color: '#0e90d2'}},
-        {value: $(影子条目)$, name: '影子条目',itemStyle: {color: 'orange'}},
-        {value:  $(教程条目)$, name: '教程条目',itemStyle: {color: 'red'}},
-        {value: $(ECharts条目)$, name: 'ECharts条目',itemStyle: {color: 'pink'}}
+        {value: $(Entradas del Dia Nacional)$,name: 'Entradas del Dia Nacional',itemStyle: {color: '#28a745'}},
+        {value: $(Entradas generales)$, name: 'Entradas generales' ,itemStyle: {color: '#0e90d2'}},
+        {value: $(Entradas en la sombra)$, name: 'Entradas en la sombra',itemStyle: {color: 'orange'}},
+        {value:  $(Entrada al tutorial)$, name: 'Entrada al tutorial',itemStyle: {color: 'red'}},
+        {value: $(EChartsEntradas)$, name: 'EChartsEntradas',itemStyle: {color: 'pink'}}
 
       ],
 ```/>
 
-接下来就是把筛选器给拼接上去。
+El siguiente paso es unir los filtros.。
 
 <$macrocall $name=code src=```<$let
-	国庆条目={{{[!is[system]tag[国庆七天]sort[title]count[]]}}}
-    普通条目={{{[!is[system]sort[title]count[]]}}}
-    影子条目={{{[is[tiddler]is[shadow]sort[title]count[]]}}}
-    教程条目={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}
-    ECharts条目={{{[!is[system]tag[ECharts]sort[title]count[]]}}}
+	Entradas del Dia Nacional={{{[!is[system]tag[Siete dias del Dia Nacional]sort[title]count[]]}}}
+    Entradas generales={{{[!is[system]sort[title]count[]]}}}
+    Entradas en la sombra={{{[is[tiddler]is[shadow]sort[title]count[]]}}}
+    Entrada al tutorial={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}
+    EChartsEntradas={{{[!is[system]tag[ECharts]sort[title]count[]]}}}
 >
 
 <$echarts $text=<<pie-chart>> $height="500px" />
@@ -89,8 +89,8 @@ option = {
 </$let>
 ```/>
 
-一般来说，变量都是以英文的，但这里我们方便理解就直接用中文作为变量名了。
+En terminos generales, las variables estan en ingles, pero aqui usamos chino como nombre de variable para facilitar la comprension.。
 
-然后我们把这两串代码放到[[简单饼图-动态数值-完整代码]]，就可以前去查看效果。
+Luego ponemos estas dos cadenas de codigo en[[Grafico circular sencillo-Valores dinamicos-Codigo completo]]，Puedes ir y comprobar el efecto.。
 
-{{简单饼图-动态数值-完整代码}}
+{{Grafico circular sencillo-Valores dinamicos-Codigo completo}}

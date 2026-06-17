@@ -1,13 +1,13 @@
 created: 20231007074515503
 modified: 20231007080555140
-tags: 堆叠图
-title: 堆叠图-给定数值
+tags: Grafico apilado
+title: Grafico apilado-Dado un valor
 type: text/vnd.tiddlywiki
 
-给定数值的，同样可以直接把[[示例代码|https://echarts.apache.org/examples/zh/editor.html?c=area-stack]]复制下来，进行修改展示。
+Si se proporciona un valor numerico, tambien puedes directamente[[Codigo de muestra|https://echarts.apache.org/examples/zh/editor.html?c=area-stack]]Copielo y modifiquelo para mostrarlo.。
 
-<<code src:"堆叠图-给定数值-完整代码">>
+<<code src:"Grafico apilado-Dado un valor-Codigo completo">>
 
-点击复制就可以看到效果了。可以去[[堆叠图-给定数值-完整代码]]查看完整代码。同时还可以点击上面的图标，其实也是按钮，这样就可以看到四条或者三条的变化情况。
+Haga clic en Copiar para ver el efecto. puede ir[[Grafico apilado-Dado un valor-Codigo completo]]Ver el codigo completo. Al mismo tiempo, tambien puedes hacer clic en el icono de arriba, que en realidad es un boton, para que puedas ver los cambios en las cuatro o tres barras.。
 
-{{堆叠图-给定数值-完整代码}}
+{{Grafico apilado-Dado un valor-Codigo completo}}

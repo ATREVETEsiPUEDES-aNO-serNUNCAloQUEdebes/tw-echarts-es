@@ -1,19 +1,19 @@
 created: 20231007042817488
-list: 进度图-给定数值 进度图-动态数值
+list: Grafico de progreso-Grafico de progreso de valor numerico dado-Valores dinamicos
 modified: 20231007052758665
-tags: 教程向-Echarts插件简单使用
-title: 进度图
+tags: Direccion del tutorial.-EchartsEl complemento es facil de usar
+title: Grafico de progreso
 type: text/vnd.tiddlywiki
 
-进度图实际上也是仪表图。这里就先把两者当成一种。后面有其他的例子再讨论。
+Un grafico de progreso es en realidad un grafico de instrumentos. Tratemos a los dos como uno aqui. Discutiremos otros ejemplos mas adelante.。
 
-简单的进度图其实就是反映一个数值。论坛上有库克马做的简单饼图，可参考下面链接。
+Un grafico de progreso simple en realidad refleja un valor numerico. Hay un grafico circular sencillo elaborado por Cook Ma en el foro. Puede consultar el siguiente enlace.。
 
-* [[Tiddlywiki 中的圆环图与动画|https://talk.tiddlywiki.org/t/donut-chart-in-tiddlywiki-with-animation/535]]
-* [[TiddlyWiki 中的简单进度饼图|https://talk.tiddlywiki.org/t/simple-progress-pie-chart-in-tiddlywiki/505]]
+* [[Tiddlywiki Graficos de anillos y animaciones en|https://talk.tiddlywiki.org/t/donut-chart-in-tiddlywiki-with-animation/535]]
+* [[TiddlyWiki Grafico circular de progreso simple en|https://talk.tiddlywiki.org/t/simple-progress-pie-chart-in-tiddlywiki/505]]
 
-这两个图表比较简单，也挺好用。
+Estos dos graficos son relativamente simples y faciles de usar.。
 
-这里我们用echarts图谱也简单实现一个。用的是水滴动态形式，所以还需要安装`$:/plugins/Gk0Wk/echarts-liquidfill`插件。
+Aqui usamosechartsEl grafico tambien es facil de implementar. Se utiliza la forma dinamica de gotas de agua, por lo que aun es necesario instalarlo.`$:/plugins/Gk0Wk/echarts-liquidfill`Complementos。
 
-<<tabs "[tag[进度图]]" "进度图-给定数值" "$:/state/tab1" >>
+<<tabs "[tag[Grafico de progreso]]" "Grafico de progreso-Dado un valor" "$:/state/tab1" >>

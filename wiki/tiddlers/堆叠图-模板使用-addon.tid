@@ -1,7 +1,7 @@
 created: 20231007083035508
 modified: 20231007083241376
-tags: 堆叠图-模板使用
-title: 堆叠图-模板使用-addon
+tags: Grafico apilado-Uso de plantillas
+title: Grafico apilado-Uso de plantillas-addon
 type: text/vnd.tiddlywiki
 
 <$let 
@@ -21,7 +21,7 @@ graphRootTiddler=<<currentTiddler>>
     }
   },
   "legend": {
-    "data": ['生活', '学习', '娱乐', '活动', '工作']
+    "data": ['vida', 'aprender', 'Entretenimiento', 'Actividades', 'Trabajo']
   },
   "toolbox": {
     "feature": {
@@ -50,7 +50,7 @@ graphRootTiddler=<<currentTiddler>>
   ],
   "series": [
     {
-      "name": "生活",
+      "name": "vida",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -61,10 +61,10 @@ graphRootTiddler=<<currentTiddler>>
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!生活}}', </$list>]
+      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!vida}}', </$list>]
     },
     {
-      "name": "学习",
+      "name": "aprender",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -75,10 +75,10 @@ graphRootTiddler=<<currentTiddler>>
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!学习}}', </$list>]
+      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!aprender}}', </$list>]
     },
     {
-      "name": "娱乐",
+      "name": "Entretenimiento",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -89,10 +89,10 @@ graphRootTiddler=<<currentTiddler>>
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!娱乐}}', </$list>]
+      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!Entretenimiento}}', </$list>]
     },
     {
-      "name": "活动",
+      "name": "Actividades",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -103,10 +103,10 @@ graphRootTiddler=<<currentTiddler>>
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!活动}}', </$list>]
+      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!Actividades}}', </$list>]
     },
     {
-      "name": "工作",
+      "name": "Trabajo",
       "type": "line",
       "stack": "Total",
       "label": {
@@ -117,7 +117,7 @@ graphRootTiddler=<<currentTiddler>>
       "emphasis": {
         "focus": "series"
       },
-      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!工作}}', </$list>]
+      "data": [<$list filter="[tag<graphRootTiddler>]">'{{!!Trabajo}}', </$list>]
     }
   ]
 }

@@ -1,59 +1,59 @@
 created: 20211230150144652
 modified: 20230116062608060
 tags: ECharts
-title: 我该如何使用该插件?
+title: ¿Como uso este complemento??
 type: text/vnd.tiddlywiki
 
-> 注意：阅读本节时，已默认你会使用ECharts。所以如果在阅读中感觉有一些不理解，请去[[补补课|https://echarts.apache.org/zh/index.html]]。也欢迎贡献此教程，我知道我写的不算太好。
+> Nota: Al leer esta seccion, se supone que utilizaraECharts。Entonces, si sientes que no entiendes algo mientras lees, ve a[[Lecciones de recuperacion|https://echarts.apache.org/zh/index.html]]。Tambien son bienvenidas las contribuciones a este tutorial. Se que lo que escribi no es muy bueno.。
 
-这个插件的使用方式很简单，也可以很复杂，先从最简单的方式说起：
+La forma de utilizar este complemento es muy sencilla o puede resultar muy complicada. Empecemos por la forma mas sencilla.：
 
-定义一个`echarts`控件：
+Definir un`echarts`Controles：
 
 ```html
 <$echarts />
 ```
 
-和其他控件一样，`echarts`控件有很多的参数：
+Igual que otros controles，`echarts`Los controles tienen muchos parametros.：
 
-|!参数 |!解释 |
-|$text |一段js代码，能够直接生成图表 |
-|$tiddler |包含配置信息的条目(的标题)，可以是JSON类型、JS类型或者TW5类型，如果`$text`参数存在则没有任何效果 |
-|$width |画布的宽，默认为`100%` |
-|$height |画布的高，默认为`300px` |
-|$class |画布外层`div`容器的类名，默认为`gk0wk-echarts-body` |
-|$fillSidebar |当控件位于侧边栏时，是否自动调整高度以填满侧边栏，默认为`true` |
-|$theme |ECharts的主题，`light`为亮色主题，`dark`为暗色主题，`auto`(默认)为自动判断 |
-|$renderer |渲染方式，`canvas`(默认)或者`svg` |
-|$throttle | 整数，单位为毫秒，用于控制刷新频率，用于防止刷新过于频繁导致浏览器卡顿，默认为`1000` |
-|其他参数 |如果`$tiddler`指向JS类型的条目，将会作为其`onUpdate`函数的参数 |
+|!Parametros |!Explicacion |
+|$text |un parrafojsCodigo que puede generar graficos directamente. |
+|$tiddler |Entradas que contienen informacion de configuracion.(Titulo de)，Puede serJSONEscribe、JSEscriba oTW5Escriba si`$text`Si el parametro existe, no tiene ningun efecto. |
+|$width |El ancho del lienzo, el valor predeterminado es`100%` |
+|$height |La altura del lienzo, el valor predeterminado es`300px` |
+|$class |Capa exterior de lienzo.`div`El nombre de clase del contenedor, el valor predeterminado es`gk0wk-echarts-body` |
+|$fillSidebar |Cuando el control esta ubicado en la barra lateral, si se ajusta automaticamente la altura para llenar la barra lateral, el valor predeterminado es`true` |
+|$theme |EChartsTema，`light`Utilice un tema de colores brillantes，`dark`Para un tema oscuro，`auto`(Predeterminado)Para juicio automatico |
+|$renderer |Metodo de renderizado，`canvas`(Predeterminado)o`svg` |
+|$throttle | Entero, la unidad es milisegundo, se usa para controlar la frecuencia de actualizacion, se usa para evitar el retraso del navegador causado por la actualizacion con demasiada frecuencia, el valor predeterminado es`1000` |
+|Otros parametros |Si`$tiddler`SenalandoJSLas entradas de tipo se utilizaran como su`onUpdate`Parametros de funcion |
 
-!! <$text text="$text"/>: 对初学者最友好的方式
+!! <$text text="$text"/>: La forma mas facil para principiantes
 
-会写 JavaScript 代码的毕竟是少数，我猜很多人都是靠拷贝和修改 ECharts 的官方示例代码来入门的——没关系我当初也一样 :D
+Puede escribir JavaScript Despues de todo, solo unas pocas personas poseen el codigo. Supongo que mucha gente confia en copiar y modificar. ECharts Utilice el codigo de muestra oficial para empezar; no importa, hice lo mismo en aquel entonces. :D
 
-所以我为大家准备了一个非常简单的使用方法。将 [[ECharts 官方示例|https://echarts.apache.org/examples/zh/]]中的任意一个例子的代码拷贝过来，作为`$text`的参数，就大功告成了。
+Asi que he preparado un metodo muy sencillo para que lo utilices. voluntad [[ECharts Ejemplos oficiales|https://echarts.apache.org/examples/zh/]]Copie el codigo de cualquier ejemplo en 27. como`$text`parametros, ya terminaste。
 
-比如，我们希望使用[[这里|https://echarts.apache.org/examples/zh/editor.html?c=line-sections]]的曲线图，那么我们就将它的代码(注意：是`代码编辑`的内容而不是`完整代码`的内容)放到`$text`参数中：
+Por ejemplo, queremos usar[[aqui|https://echarts.apache.org/examples/zh/editor.html?c=line-sections]]grafico de curva, luego usaremos su codigo(Nota: Si`Edicion de codigo`El contenido en lugar de`Codigo completo`Contenidos)poner`$text`En parametros：
 
 ```html
 <$echarts $text="""
 option = {
-... (太长我就不放了)
+... (Si es demasiado largo, no lo dejare pasar.)
 """/>
 ```
 
-或者你也可以将其存储在一个tiddler中，比如 [[ExampleOfTextData]] ，再用 transclude 方式取其值：
+O puedes guardarlo en untiddleren, por ejemplo [[ExampleOfTextData]] ，reutilizar transclude Metodo para obtener su valor：
 
 ```html
 <$echarts $text={{ExampleOfTextData}}/>
 ```
 
-就可以达到如下的效果：
+Se pueden lograr los siguientes efectos：
 
 <$echarts $text={{ExampleOfTextData}}/>
 
-我还准备了 macro 形式，所以下面的方式也是可以的：
+He preparado macro formulario, por lo que el siguiente metodo tambien es posible：
 
 ```html
 <<echarts """
@@ -61,19 +61,19 @@ option = ...
 """>>
 ```
 
-macro 也有`width`等可选参数，这里就不赘述了。
+macro Tambien hay`width`Espere los parametros opcionales, en los que no entrare en detalles aqui.。
 
-!! JSON 类型的条目
+!! JSON Tipo de entradas
 
-这里比较难理解的就是`$tiddler`指向的是什么？这里给一个小例子，来看一下 [[$:/plugins/Gk0Wk/echarts/addons/SimpleExample.json]] 这个条目，可以发现它是一个JSON文件，用过ECharts的同学应该有一眼能看出来它是什么，没错，就是 `echarts.setOption` 的第一个参数。
+Lo que es mas dificil de entender aqui es que`$tiddler`¿A que apunta? Aqui tienes un pequeno ejemplo para que le eches un vistazo. [[$:/plugins/Gk0Wk/echarts/addons/SimpleExample.json]] Se puede encontrar que esta entrada es unaJSONArchivo, usadoEChartsLos estudiantes deberian poder decir que es de un vistazo. Si, lo es `echarts.setOption` El primer parametro.。
 
-我们按照如下方式将这个柱状图导入，就可以显示了:
+Importamos este histograma de la siguiente manera y se puede mostrar.:
 
 ```html
 <$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/SimpleExample.json"/>
 ```
 
-或者:
+o:
 
 ```html
 <<echarts "$:/plugins/Gk0Wk/echarts/addons/SimpleExample.json">>
@@ -81,29 +81,29 @@ macro 也有`width`等可选参数，这里就不赘述了。
 
 <$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/SimpleExample.json"/>
 
-就这么简单？没错真的就这么简单，剩下的事情，包括画布尺寸的自动调整、刷新机制、资源管理等等都不需要你来操心。
+¿Es asi de sencillo? Si, es realmente asi de simple. No necesita preocuparse por el resto de las cosas, incluido el ajuste automatico del tamano del lienzo, el mecanismo de actualizacion, la gestion de recursos, etc.。
 
-!! TW5 类型的条目
+!! TW5 Tipo de entradas
 
-不过，一个静态的JSON文件，除了用来演示静态的信息之外就没有别的用处了。相信大家更需要的是能够动态更新的条目。为了满足这样的需要，如果`$tiddler`指向一个普通的条目(类型为空或者`text/vnd.tiddlywiki`，下面称其为TW5条目)，那么会对其进行渲染得到纯文本内容，再将纯文本作为JSON进行解析。这样就可以利用`<$list>`、`<$reveal>`等控件进行条件渲染和数据遍历了。
+Sin embargo, una estaticaJSONEl archivo no tiene otro uso excepto presentar informacion estatica. Creo que lo que todo el mundo necesita mas son elementos que se puedan actualizar dinamicamente. Para satisfacer tales necesidades, si`$tiddler`Senala una entrada normal.(El tipo esta vacio o`text/vnd.tiddlywiki`，En lo sucesivo denominadoTW5Entradas)，Luego se renderizara para obtener el contenido de texto sin formato, y luego el texto sin formato se utilizara comoJSONAnalizar. De esta manera podras aprovechar`<$list>`、`<$reveal>`Espere a que el control realice renderizado condicional y recorrido de datos.。
 
-这里有一个非常好的例子(甚至值得作为一个优秀的插件)，是动态统计已安装的所有插件的大小，并用矩阵树图的方式来呈现。每个块都是可以展开和缩放的。
+Aqui tienes un muy buen ejemplo.(Incluso digno de ser un excelente complemento)，Cuenta dinamicamente los tamanos de todos los complementos instalados y los presenta en un diagrama de arbol matricial. Cada bloque es ampliable y ampliable.。
 
 <$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/PluginsSize" $height="500px"/>
 
-对应的条目是[[$:/plugins/Gk0Wk/echarts/addons/PluginsSize]]，会生成一个非常长的条目，因此在打开的时候会有卡顿，请做好心理准备。
+La entrada correspondiente es[[$:/plugins/Gk0Wk/echarts/addons/PluginsSize]]，Se generara una entrada muy larga, por lo que habra un retraso al abrir, por favor este preparado mentalmente.。
 
-不过说到这里，你可能会有疑问，控件会在什么时候进行刷新呢？在默认情况下，对于JSON条目和TW5条目，只有在变更控件参数或者`$tiddler`指向的条目发生变化时才会更新。
+Pero llegados a este punto, es posible que tengas dudas: ¿cuando se actualizara el control? Por defecto, paraJSONEntradas yTW5Entrada, solo al cambiar parametros de control o`$tiddler`Se actualizara solo cuando cambie la entrada senalada.。
 
-那么我可不可以自行决定刷新的时机？当然可以，在 `$tiddler` 指向的那个条目中添加 `echarts-refresh-trigger` 字段即可。该字段内填写你自定义的过滤器表达式，每当表达式的结果发生变化时，就会触发更新。例如 `[[Examples]get[modified]]` ，就会在 ''Examples'' 这个条目被修改后更新(因为时间戳会变化)。
+¿Puedo decidir yo solo el momento de refrescarme? Por supuesto, en `$tiddler` Agregar a la entrada senalada `echarts-refresh-trigger` Simplemente haga clic en el campo. Complete este campo con su expresion de filtro personalizada y cada vez que cambie el resultado de la expresion, se activara una actualizacion. por ejemplo `[[Examples]get[modified]]` ，estara alli ''Examples'' Esta entrada fue actualizada despues de modificacion.(Porque la marca de tiempo cambiara)。
 
-[[clsturgeon|https://talk.tiddlywiki.org/t/echarts-bringing-amazing-visualization-tools-to-tiddlywiki/1944/32?u=sttot]] 提出了一个需求：TW5类型的addon应当能够获取到正在使用echarts控件的tiddler的变量(比如获得使用echarts控件的tiddler的`currentTiddler`以便访问其fields)。为了实现这个需求，可以在echarts控件中添加自定义属性，就可以在对应的TW5类型的addon中作为变量来使用。例如：
+[[clsturgeon|https://talk.tiddlywiki.org/t/echarts-bringing-amazing-visualization-tools-to-tiddlywiki/1944/32?u=sttot]] Presentar una demanda：TW5EscribeaddonDeberia ser posible obtener la informacion que se utiliza.echartsControlestiddlerVariables de(Por ejemplo, para acceder aechartsControlestiddlerde`currentTiddler`Para acceder a sufields)。Para cumplir con este requisito, puedeechartsAgregue atributos personalizados al control y podra agregar el correspondienteTW5EscribeaddonUtilizado como variable en . por ejemplo：
 
 ```html
 <$echarts $tiddler="xxx" outterTiddler=<<currentTiddler>>/>
 ```
 
-然后就可以在TW5类型的addon中使用这个变量：
+Entonces puedesTW5EscribeaddonUtilice esta variable en：
 
 ```html
 `{
@@ -111,70 +111,70 @@ macro 也有`width`等可选参数，这里就不赘述了。
 }`
 ```
 
-!!! 绑定点击事件
+!!! Vincular evento de clic
 
 {{$:/plugins/Gk0Wk/echarts/addons/BrainMap-readme}}
 
-可用的鼠标事件及参数详见[[Echarts - events.鼠标事件|https://echarts.apache.org/zh/api.html#events.%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6]]
+Para obtener detalles sobre los eventos y parametros del mouse disponibles, consulte[[Echarts - events.Eventos del mouse|https://echarts.apache.org/zh/api.html#events.%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6]]
 
-可用的 `$tw` api，可以通过在浏览器控制台里学习（详见[[太微中文教程-交互式查看API|https://tw-cn.netlify.app/#%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9F%A5%E7%9C%8BAPI]]），也可以通过搜索[[TW5-Typed|https://github.com/tiddly-gittly/TW5-Typed]]来学习
+Disponible `$tw` api，Puedes aprender en la consola del navegador (ver detalles[[Tutorial de chino Taiwei-Visualizacion interactivaAPI|https://tw-cn.netlify.app/#%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9F%A5%E7%9C%8BAPI]]），Tambien puedes buscar[[TW5-Typed|https://github.com/tiddly-gittly/TW5-Typed]]Ven y aprende
 
-!! JS 类型的条目
+!! JS Tipo de entradas
 
-使用TW5语法生成数据，肯定还是要有局限性的。如果想发挥最大限度的灵活性，推荐使用 ~JavaScript 来写(当然，肯定是有技术门槛的)。
+usoTW5Los datos generados gramaticamente aun deben tener limitaciones. Si desea la maxima flexibilidad, se recomienda utilizar ~JavaScript Ven y escribe(Por supuesto, debe haber un umbral tecnico.)。
 
-不管 JSON、 TW5 还是 JS ，最核心的肯定是生成一个 `setOption` 能够支持的对象。不过对于 JS 类型的条目，优势在于拥有生命周期，拥有状态，自定义更新时机以及对 `echarts` 实例的完全掌控——当然，麻烦的事情我已经帮你搞定了，你只需要把精力放在可视化本身上。
+Independientemente JSON、 TW5 Todavia JS ，Lo mas importante es generar una `setOption` Objetos que se pueden soportar. pero para JS La ventaja del tipo de entradas es que tienen ciclo de vida, estado, tiempo de actualizacion personalizado y `echarts` Control total de la instancia: por supuesto, yo me he encargado de las cosas problematicas por usted, usted solo necesita concentrarse en la visualizacion en si.。
 
-我参考了 Vue 和 React 的组件写法，一个JS类型条目的模板是这样的：
+Me refiero a Vue y React Como escribir componentes, unJSLa plantilla de la entrada tipo es asi：
 
 ```javascript
 /**
- * 当组件第一次初始化时调用的函数(可选)
- * @param {ECharts} myChart echarts实例，详见echarts的API文档
- * @param {AttributesType} addonAttributes <$echarts> 控件传入的的所有参数，是object
- * @param {EChartsWidget} [echartsWidget] <$echarts> 控件实例，可能为undefiend
- * @return {StateType} 初始化的组件状态，用于状态管理(可选)
+ * Funcion llamada cuando el componente se inicializa por primera vez.(Opcional)
+ * @param {ECharts} myChart echartsPara ejemplos, verechartsdeAPIDocumentacion
+ * @param {AttributesType} addonAttributes <$echarts> Todos los parametros pasados por el control sonobject
+ * @param {EChartsWidget} [echartsWidget] <$echarts> Instancia de control, que podra serundefiend
+ * @return {StateType} Estado del componente inicializado, utilizado para la gestion del estado.(Opcional)
  */
 exports.onMount = function (myChart, addonAttributes, echartsWidget) {
   return {};
 };
 /**
- * 判断是否需要刷新组建(可选)
- * @param {StateType} state 组件的状态，就是onMount返回的那个
- * @param {IChangedTiddlers} changedTiddlers 刷新是由TW系统监听到有条目发生变化才会触发的，这是一个包含所有变更条目标题的字符串数组
- * @param {Record<string, true>} changedAttributes 哪些参数被改变了，包括$开头的参数
- * @return {boolean} 如果需要刷新就返回true，反之
+ * Determine si es necesario actualizar la configuracion.(Opcional)
+ * @param {StateType} state El estado del componente esonMountEl que regresa
+ * @param {IChangedTiddlers} changedTiddlers La actualizacion se realiza medianteTWEsto se activa cuando el sistema detecta cambios en las entradas. Se trata de una matriz de cadenas que contiene los titulos de todas las entradas modificadas.
+ * @param {Record<string, true>} changedAttributes ¿Que parametros se cambiaron, incluidos$Parametros al principio.
+ * @return {boolean} Regresar si es necesario actualizartrue，Viceversa
  *
- * shouldRefresh 也可以是一个字符串，那就和 echarts-refresh-trigger 字段一样
+ * shouldRefresh Tambien puede ser una cadena, entonces es igual a echarts-refresh-trigger Los campos son los mismos
  */
 exports.shouldUpdate = function (state, changedTiddlers, changedAttributes) {
   return true;
 }
 /**
- * 当组件被更新时调用的函数
- * @param {ECharts} myChart echarts实例，详见echarts的API文档
- * @param {StateType} state 组件的状态，就是onMount返回的那个
- * @param {AttributesType} addonAttributes <$echarts> 控件传入的所有参数
+ * Funcion llamada cuando se actualiza el componente.
+ * @param {ECharts} myChart echartsPara ejemplos, verechartsdeAPIDocumentacion
+ * @param {StateType} state El estado del componente esonMountEl que regresa
+ * @param {AttributesType} addonAttributes <$echarts> Todos los parametros pasados por el control.
  */
 exports.onUpdate = function (myChart, state, addonAttributes) {
-  // 注意：函数不返回任何值，你需要手动调用setOption函数
-  // 需要的参数都有了，想做什么随意
+  // Nota: La funcion no devuelve ningun valor, debe llamarla manualmentesetOptionFuncion
+  // Todos los parametros requeridos estan disponibles, puedes hacer lo que quieras.
   myChart.setOption({});
 }
 /**
- * 当组件被卸载时调用的函数(可选)
- * 注意：如果浏览器页面被直接关闭，可能就没法调用这个函数了
- * @param {StateType} state 组件的状态，就是onMount返回的那个
+ * Funcion llamada cuando se descarga el componente.(Opcional)
+ * Nota: Si la pagina del navegador se cierra directamente, es posible que no se pueda llamar a esta funcion.
+ * @param {StateType} state El estado del componente esonMountEl que regresa
  */
 exports.onUnmount = function (state) {
 
 }
 ```
 
-@@color:red;注意：这个条目的类型应当为 `application/javascript` ，且应当包含字段 `module-type` ，值为 `echarts-component` 。@@
+@@color:red;Nota: El tipo de esta entrada debe ser `application/javascript` ，Y debe contener campos. `module-type` ，El valor es `echarts-component` 。@@
 
-这里也有一个简单的例子，用于生成所有非系统条目的标签词云([[$:/plugins/Gk0Wk/echarts/addons/TagCloud.ts]]):
+A continuacion se muestra tambien un ejemplo sencillo para generar una nube de palabras de etiquetas de todas las entradas que no pertenecen al sistema.([[$:/plugins/Gk0Wk/echarts/addons/TagCloud.ts]]):
 
 <$echarts $tiddler="$:/plugins/Gk0Wk/echarts/addons/TagCloud.js"/>
 
-这里想简单说明一下，为什么会有`addonAttributes`以及应该如何使用。如果你有能力编写JS类型的可视化组件，希望你能够不仅仅为自己开发组件，也为其他人开发组件，我预留了足够的位置，让你能够对`<$echarts>`组件进行拓展，因此当用户输入类似`<$echarts foo="bar"/>`这样的自定义参数时，你也能够获取到，这就有了更大的灵活度。希望利用这一点，帮助你写出更加灵活通用的组件！
+Aqui me gustaria explicar brevemente por que hay`addonAttributes`Y como se debe utilizar. Si tienes la habilidad de escribirJSTipos de componentes visuales. Espero que puedas desarrollar componentes no solo para ti sino tambien para otros. He reservado suficiente espacio para que puedas`<$echarts>`El componente se expande de modo que cuando el usuario ingresa algo como`<$echarts foo="bar"/>`Tambien puede obtener dichos parametros personalizados, lo que le brinda mayor flexibilidad. Espero utilizar esto para ayudarle a escribir componentes mas flexibles y versatiles.！

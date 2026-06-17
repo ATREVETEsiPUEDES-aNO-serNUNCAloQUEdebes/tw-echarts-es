@@ -1,7 +1,7 @@
 created: 20231007045325609
 modified: 20231007051409408
-tags: 进度图-动态数值
-title: 进度图-动态数值-完整代码
+tags: Grafico de progreso-Valores dinamicos
+title: Grafico de progreso-Valores dinamicos-Codigo completo
 type: text/vnd.tiddlywiki
 
 \define liquid-fill-percentage()
@@ -22,9 +22,9 @@ option = {
 
 
 <$let
-	普通条目={{{[!is[system]sort[title]count[]]}}}
-	影子条目={{{ [is[tiddler]is[shadow]sort[title]count[]] }}}
-  test={{{[<影子条目>divide<普通条目>fixed[4]]}}}
+	Entradas generales={{{[!is[system]sort[title]count[]]}}}
+	Entradas en la sombra={{{ [is[tiddler]is[shadow]sort[title]count[]] }}}
+  test={{{[<Entradas en la sombra>divide<Entradas generales>fixed[4]]}}}
 >
 
 <$echarts $text=<<liquid-fill-percentage>> />

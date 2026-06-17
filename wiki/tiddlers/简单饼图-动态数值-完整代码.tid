@@ -1,14 +1,14 @@
 created: 20231007072830872
 modified: 20231007073029725
-tags: 简单饼图-动态数值
-title: 简单饼图-动态数值-完整代码
+tags: Grafico circular sencillo-Valores dinamicos
+title: Grafico circular sencillo-Valores dinamicos-Codigo completo
 type: text/vnd.tiddlywiki
 
 \define pie-chart()
 option = {
   title: {
-    text: '简单饼图',
-    subtext: '动态数据',
+    text: 'Grafico circular sencillo',
+    subtext: 'Datos dinamicos',
     left: 'center'
   },
   tooltip: {
@@ -18,7 +18,7 @@ option = {
   legend: {
     bottom: 10,
     left: 'center',
-    data: ['国庆条目', '普通条目', '影子条目', '教程条目', 'ECharts条目']
+    data: ['Entradas del Dia Nacional', 'Entradas generales', 'Entradas en la sombra', 'Entrada al tutorial', 'EChartsEntradas']
   },
   series: [
     {
@@ -27,11 +27,11 @@ option = {
       center: ['50%', '50%'],
       selectedMode: 'single',
       data: [
-        {value: $(国庆条目)$,name: '国庆条目' },
-        { value: $(普通条目)$, name: '普通条目' },
-        { value: $(影子条目)$, name: '影子条目' },
-        { value: $(教程条目)$, name: '教程条目' },
-        { value: $(ECharts条目)$, name: 'ECharts条目' }
+        {value: $(Entradas del Dia Nacional)$,name: 'Entradas del Dia Nacional' },
+        { value: $(Entradas generales)$, name: 'Entradas generales' },
+        { value: $(Entradas en la sombra)$, name: 'Entradas en la sombra' },
+        { value: $(Entrada al tutorial)$, name: 'Entrada al tutorial' },
+        { value: $(EChartsEntradas)$, name: 'EChartsEntradas' }
       ],
       emphasis: {
         itemStyle: {
@@ -46,11 +46,11 @@ option = {
 \end
 
 <$let
-	国庆条目={{{[!is[system]tag[国庆七天]sort[title]count[]]}}}
-    普通条目={{{[!is[system]sort[title]count[]]}}}
-    影子条目={{{[is[tiddler]is[shadow]sort[title]count[]]}}}
-    教程条目={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}
-    ECharts条目={{{[!is[system]tag[ECharts]sort[title]count[]]}}}
+	Entradas del Dia Nacional={{{[!is[system]tag[Siete dias del Dia Nacional]sort[title]count[]]}}}
+    Entradas generales={{{[!is[system]sort[title]count[]]}}}
+    Entradas en la sombra={{{[is[tiddler]is[shadow]sort[title]count[]]}}}
+    Entrada al tutorial={{{[!is[system]!prefix[$:/]sameday:created[20231007]sort[title]count[]]}}}
+    EChartsEntradas={{{[!is[system]tag[ECharts]sort[title]count[]]}}}
 >
 
 <$echarts $text=<<pie-chart>> $height="500px"/>

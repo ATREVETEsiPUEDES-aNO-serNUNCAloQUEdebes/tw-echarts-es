@@ -1,7 +1,7 @@
 created: 20231007074916667
 modified: 20231007080650501
-tags: 堆叠图-给定数值
-title: 堆叠图-给定数值-完整代码
+tags: Grafico apilado-Dado un valor
+title: Grafico apilado-Dado un valor-Codigo completo
 type: text/vnd.tiddlywiki
 
 <$echarts $text="""

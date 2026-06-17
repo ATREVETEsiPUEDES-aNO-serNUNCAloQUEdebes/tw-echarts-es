@@ -85,9 +85,9 @@ const GitHubHeatMapAddon: IScriptAddon<{ filter: string }> = {
       if (count === 0) {
         return checkIfChinese()
           ? `${(ECharts as any).format.formatTime(
-              'yyyy年M月d日',
+              'yyyyanosMmesesddia',
               dateValue,
-            )} 无条目。`
+            )} No hay entradas。`
           : `${$tw.utils.formatDateString(
               $tw.utils.parseDate(dateValue.replace(/-/g, ''))!,
               'MMM DDD, YYYY',
@@ -96,9 +96,9 @@ const GitHubHeatMapAddon: IScriptAddon<{ filter: string }> = {
       const p = $tw.utils.domMaker('p', {
         text: checkIfChinese()
           ? `${(ECharts as any).format.formatTime(
-              'yyyy年M月d日',
+              'yyyyanosMmesesddia',
               dateValue,
-            )} 共有 ${count} 篇:`
+            )} Compartido ${count} articulos:`
           : `${$tw.utils.formatDateString(
               $tw.utils.parseDate(dateValue.replace(/-/g, ''))!,
               'MMM DDD, YYYY',
@@ -153,7 +153,7 @@ const GitHubHeatMapAddon: IScriptAddon<{ filter: string }> = {
         top: 0,
         left: 'center',
         text: chinese
-          ? `今年产出 ${total} 篇文章`
+          ? `Produccion este ano ${total} articulos`
           : `Produced ${total} tiddlers this year`,
       },
       tooltip: {
@@ -173,7 +173,7 @@ const GitHubHeatMapAddon: IScriptAddon<{ filter: string }> = {
         right: 0,
         top: 175,
         pieces: [
-          // 设置分段范围
+          // Establecer rango de segmentacion
           { lte: 0, color: darkMode ? '#161B22' : '#EBEDF0' },
           { gt: 0, lte: 3, color: darkMode ? '#0E4429' : '#39D353' },
           { gt: 3, lte: 7, color: darkMode ? '#006D32' : '#26A641' },

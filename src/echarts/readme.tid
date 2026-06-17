@@ -3,11 +3,11 @@ title: $:/plugins/Gk0Wk/echarts/readme
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-将强大的可视化工具 [[ECharts|https://echarts.apache.org/zh/index.html]] 以优雅的方式与 TiddlyWiki 相结合。
+Integre potentes herramientas de visualizacion [[ECharts|https://echarts.apache.org/zh/index.html]] Extiende la mano con gracia TiddlyWiki combinar。
 
-插件说明与使用教程较长，请参考 https://tiddly-gittly.github.io/tw-echarts/
+La descripcion del complemento y el tutorial de uso son extensos; consulte https://tiddly-gittly.github.io/tw-echarts/
 
-> 本插件使用灵活而强大的 <$text text="TiddlyWiki" /> 开发框架 [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
+> Este complemento es flexible y potente. <$text text="TiddlyWiki" /> Marco de desarrollo [[Tiddly.ModernDev|https://github.com/tiddly-gittly/Modern.TiddlyDev]]
 
 </$list>
 

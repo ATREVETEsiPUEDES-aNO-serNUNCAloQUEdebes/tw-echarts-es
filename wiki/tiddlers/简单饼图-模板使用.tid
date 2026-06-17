@@ -1,7 +1,7 @@
 created: 20231007073725955
 modified: 20231007073856232
-tags: 简单饼图
-title: 简单饼图-模板使用
+tags: Grafico circular sencillo
+title: Grafico circular sencillo-Uso de plantillas
 type: text/vnd.tiddlywiki
 
-简单饼图的模板使用比较简单，这里就简单说一下。其实就是把筛选器替换成`[tag<currentTiddler>count[]]`，这样就做到了可以在当前条目下进行模板使用。
+La plantilla de un grafico circular simple es relativamente sencilla de usar, asi que la explicare brevemente aqui. De hecho, simplemente reemplace el filtro con`[tag<currentTiddler>count[]]`，De esta manera, la plantilla se puede utilizar en la entrada actual.。

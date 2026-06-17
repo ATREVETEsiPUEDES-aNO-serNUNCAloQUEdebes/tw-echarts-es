@@ -30,37 +30,37 @@ type: text/vnd.tiddlywiki
 <$list filter="[[$:/language]get[text]removeprefix[$:/languages/]else[en-GB]]" variable="lang">
 <$list filter="[<lang>search[zh]]">
 
-很久以前，在我刚刚开始使用 ~TiddlyWiki 的时候，我就希望 ~TiddlyWiki 能够进行数据的可视化工作，我希望用条目中的数据直接生成图表，我希望描绘条目间的逻辑关系，我希望能够统计词云，希望能用直观的方式描述数据...
+Hace mucho tiempo, cuando comence a usar ~TiddlyWiki espero ~TiddlyWiki Ser capaz de realizar trabajos de visualizacion de datos. Espero utilizar los datos de las entradas para generar graficos directamente. Espero representar la relacion logica entre las entradas. Espero poder contar nubes de palabras. Espero describir los datos de una manera intuitiva....
 
-可惜的是，尽管官方推出了 [[d3.js|https://d3js.org/]] 的插件，但这款插件尚未在普通用户可以使用的范围内：插件只是包装了 JS 库，并只给了两个简单的使用示例。 d3.js 是一个高度自由但是也因此具有高额学习成本的可视化库，想要利用其做各种可视化工具，就需要使用 ~JavaScript 来编写独立的控件，这对普通用户来说太极客了。
+Desafortunadamente, a pesar del lanzamiento oficial de [[d3.js|https://d3js.org/]] complemento, pero este complemento aun no esta dentro del alcance de uso de los usuarios comunes: el complemento simplemente envuelve JS Biblioteca, y solo se dan dos ejemplos de uso simples.。 d3.js Es una biblioteca de visualizacion muy gratuita pero que tambien tiene altos costos de aprendizaje. Si desea utilizarlo para crear varias herramientas de visualizacion, debe utilizarlo. ~JavaScript Escribir controles independientes es demasiado geek para los usuarios comunes.。
 
-于是我引入了另一个著名的可视化库 [[ECharts|https://echarts.apache.org/zh/index.html]] ，借助 ECharts (相对来讲)便于配置与使用以及可视化方式丰富的特点，来为普通用户提供一个不那么复杂又保留了可拓展性的可视化框架。这就是这个项目的始末了。
+Entonces presente otra biblioteca de visualizacion famosa. [[ECharts|https://echarts.apache.org/zh/index.html]] ，Con la ayuda de ECharts (Relativamente hablando)Es facil de configurar y usar y tiene metodos de visualizacion completos para proporcionar a los usuarios comunes un marco de visualizacion menos complejo que conserva la escalabilidad. Este es el principio y el final de este proyecto.。
 
-本项目的第一作者为 [[Gk0Wk|https://github.com/Gk0Wk]] ，这同时是一个使用MIT开源许可的开源项目，项目地址为 https://github.com/tiddly-gittly/tw-echarts 。我只是造了一个能够方便使用 ECharts 的框架，但是具体该用什么方式可视化、可以可视化哪些数据，取决于使用这个框架的所有人。所以''欢迎任何人通过 [[GitHub Discussions|https://github.com/tiddly-gittly/tw-echarts/discussions]] 贡献自己的可视化组件(下面会解释)，或者通过 [[GitHub Issues|https://github.com/tiddly-gittly/tw-echarts/issues]] 对框架提出建议''，期待你富有创造性的新点子！
+El primer autor de este proyecto es [[Gk0Wk|https://github.com/Gk0Wk]] ，Esto tambien es un usoMITProyectos de codigo abierto con licencia de codigo abierto, la direccion del proyecto es https://github.com/tiddly-gittly/tw-echarts 。Acabo de construir uno para facilitar su uso. ECharts marco, pero como visualizarlo y que datos se pueden visualizar depende de todos los que usan este marco. entonces''Cualquiera es bienvenido a pasar. [[GitHub Discussions|https://github.com/tiddly-gittly/tw-echarts/discussions]] Contribuye con tus propios componentes visuales.(Se explicara a continuacion.)，O por [[GitHub Issues|https://github.com/tiddly-gittly/tw-echarts/issues]] Hacer sugerencias para el marco.''，Esperando tus nuevas ideas creativas.！
 
 <<<
-本项目属于太微中国社区生态圈，我们一直在为 ~TiddlyWiki 开发插件、编写教程，致力于推广和挖掘这款强大而小众的软件，欢迎加入我们：
+Este proyecto pertenece al ecosistema comunitario de Taiwei China. Hemos estado trabajando en ~TiddlyWiki Desarrollar complementos, escribir tutoriales y comprometerse a promover y explorar este software potente y especializado. Bienvenido a unirnos a nosotros：
 
-* 社区开源项目集：https://github.com/tiddly-gittly
-* 太微插件源(收集有趣的插件)：https://tw-cpl.netlify.app/
-* ~TidGi(基于~TiddlyWiki的知识管理桌面应用)：https://github.com/tiddly-gittly/TidGi-Desktop
-* 太微中文教程：https://tw-cn.netlify.app/
-* ~TiddlyWIki爱好者QQ群：946052860
+* Coleccion de proyectos comunitarios de codigo abierto.：https://github.com/tiddly-gittly
+* Fuente del complemento Taiwei(Recopile complementos interesantes)：https://tw-cpl.netlify.app/
+* ~TidGi(Basado en~TiddlyWikiAplicacion de escritorio de gestion del conocimiento)：https://github.com/tiddly-gittly/TidGi-Desktop
+* Tutorial de chino Taiwei：https://tw-cn.netlify.app/
+* ~TiddlyWIkiEntusiastaQQgrupo：946052860
 <<<
 
-如需使用此插件，或者在使用中遇到任何问题，请阅读以下四部分内容：
+Si necesita utilizar este complemento o si encuentra algun problema durante el uso, lea las siguientes cuatro partes：
 
-* [[什么是ECharts?]]
-* [[如何安装这款插件?]]
-* [[我该如何使用该插件?]]
-* [[教程向-Echarts插件简单使用]]
-* [[请与大家分享你的工作!]]
+* [[¿Que es?ECharts?]]
+* [[Como instalar este complemento?]]
+* [[¿Como uso este complemento??]]
+* [[Direccion del tutorial.-EchartsEl complemento es facil de usar]]
+* [[Por favor comparte tu trabajo con todos.!]]
 
 ---
 
-!! 内置插件(欢迎提交)
+!! Complementos integrados(Se aceptan envios)
 
-安装 echarts 后，你可以在 设置-插件-echarts-addons 中找到如下的页面:
+Instalacion echarts Despues de eso, puedes ir a Configuracion.-Complementos-echarts-addons Encuentra la siguiente pagina en:
 
 </$list>
 
